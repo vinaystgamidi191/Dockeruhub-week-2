@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Updated to use Node.js 20
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -26,14 +26,14 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t my-qr-app .
-    
+
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
-          username: ${{ secrets.gvinay191 }}
-          password: ${{ secrets.Vinay191191 }}
+        username: ${{ secrets.gvinay191 }}
+        password: ${{ secrets.Vinay191191 }}
 
     - name: Tag and push Docker image
       run: |
-        docker tag my-qr-app ${{ secrets.DOCKER_USERNAME }}/my-qr-app:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/my-qr-app:latest
+        docker tag my-qr-app ${{ secrets.gvinay191 }}/my-qr-app:latest
+        docker push ${{ secrets.gvinay191 }}/my-qr-app:latest
